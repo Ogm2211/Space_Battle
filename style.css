@@ -1,6 +1,5 @@
 .bodyContainer{
     display: flex;
-   
     justify-content: space-between;
     height: 100vh;
     width: 100vw;
@@ -14,7 +13,23 @@
     margin: 0;
     padding: 0;
 }
-
+.fire{
+    width:15rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fireButton{
+    width:100%;
+    height:3rem;
+    font-weight: bolder;
+    font-size: x-large;
+    border-radius: 1rem;
+    background-color: black;
+    color: red;
+    box-shadow: 0px 0px 20px 10px red;
+}
 .mainCharacterView{
 
 width: 50%;
@@ -46,19 +61,20 @@ align-items: center;
     border: 1px solidblack;
     width: 30vw;
     height: 40vh;
-    background-image: url("/images/space_hero.gif");
+    background-image: url("images/space_hero.gif");
     background-size: cover ;
     background-position: center;
     background-repeat: no-repeat;
     box-shadow: 0px 0px 20px 10px white;
+    position:relative;
     
 
     
 }
 .playerStats{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     border: 1px solidblack;
     width: 15vw;
     height: 15vh;
@@ -73,19 +89,38 @@ align-items: center;
     border: 1px solidblack;
     width: 30vw;
     height: 35vh;
-    background-image: url("/images/enemy.gif");
+    background-image: url("images/enemy.gif");
     background-size: cover ;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: 0px 0px 20px 10px white;
-    
+    box-shadow: 0px 0px 20px 10px white;  
+    position:relative;  
+}
+.fireSuccess, .fireSuccess1{
+    position: absolute;
+    left:30%;
+    top: 6rem;
+    color:red;
+    display:flex;
+    flex-direction: column;
+}
 
-    
+.big-punto{
+    font-size:10rem;
+}
+.large-punto{
+    font-size: 2rem;
+}
+.hide{
+    visibility:hidden;
+}
+.visible{
+    visibility: visible;
 }
 .enemyStats{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     border: 1px solidblack;
     width: 15vw;
     height: 15vh;
