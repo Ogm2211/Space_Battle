@@ -10,6 +10,7 @@ const enemyShip = document.querySelector('#enemyShip')
 const enemyFire = document.querySelector('#enemyFire');
 const playerHull = document.querySelector('#playerHull')
 const enemyAccucary = document.querySelector('#enemyAccucary')
+const fireButton = document.querySelector('.startButton')
 
 let EnemyShips = Array.from({length: 6}, () => Math.floor(Math.random() * 4)+3);
 let EnemyShipsFire = Array.from({length: 6}, () => Math.floor(Math.random() * 3)+ 2 );
@@ -32,6 +33,7 @@ let currentShip = 0;
             fireEnemy.classList.replace('visible','hide');
             spaceShipImage.style.backgroundImage = 'url("images/space_hero.gif")'
             playerHull.textContent = `${spaceShipHull}`
+            btn.classList.replace('hide','visible')
             },2000);
     }
     else{
@@ -41,6 +43,7 @@ let currentShip = 0;
         setTimeout(function(){
             fireEnemy.classList.replace('visible','hide');
             spaceShipImage.style.backgroundImage = 'url("images/space_hero.gif")'
+            btn.classList.replace('hide','visible')
         },2000);
     }
  }
@@ -51,14 +54,19 @@ function enemyDisplay() {
     enemyAccucary.textContent = `${EnemyShipsAccuracy[currentShip]}`;
 }
 enemyDisplay()
+fireButton.addEventListener('click',event=>{
+    btn.classList.replace('hide','visible')
+    fireButton.classList.replace('display','displayNone')
+})
 btn.addEventListener('click', event => {
     let number = Math.random()
-    
+    btn.classList.replace('visible','hide')
     if(number<0.7){
 	        if(EnemyShips[currentShip]>0){
     	        EnemyShips[currentShip]-=5;
                 if(EnemyShips[EnemyShips.length-1]<0){
                     alert("You just hit all the ships \n Good job go to next duty")
+                    btn.classList.replace('hide','visible')
                     window.location.reload()
                 }
                 if(EnemyShips[currentShip]<=0){
@@ -73,6 +81,7 @@ btn.addEventListener('click', event => {
                         icon.classList.replace('visible','hide');
                         firep.classList.replace('visible','hide');
                         enemyImage.style.backgroundImage = 'url("images/enemy.gif")'
+                        btn.classList.replace('hide','visible')
                     },1500);
                 
                     currentShip++;            
@@ -94,6 +103,7 @@ btn.addEventListener('click', event => {
                     icon.classList.replace('visible','hide');
                     firep.classList.replace('visible','hide');
                     enemyImage.style.backgroundImage = 'url("images/enemy.gif")'
+        
                     },1000);
                     }
                 
@@ -102,15 +112,18 @@ btn.addEventListener('click', event => {
             }
     }      
     else{
-        setTimeout(function(){
-            enemyAttack()
-        },1000);
+       
         firep.textContent = "You Just Missed :("
         firep.classList.replace('hide','visible');
         enemyImage.style.backgroundImage = 'none';
         setTimeout(function(){
-            firep.classList.replace('visible','hide');
-            enemyImage.style.backgroundImage = 'url("images/enemy.gif")'
+            enemyAttack()
         },1000);
+        setTimeout(function(){
+             firep.classList.replace('visible','hide');
+            enemyImage.style.backgroundImage = 'url("images/enemy.gif")'
+       
+        },1000);
+       
     }
 })

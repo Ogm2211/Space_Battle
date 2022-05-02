@@ -20,7 +20,7 @@
     flex-direction: column;
     justify-content: center;
 }
-.fireButton{
+.fireButton, .startButton{
     width:100%;
     height:3rem;
     font-weight: bolder;
@@ -110,6 +110,12 @@ align-items: center;
 }
 .large-punto{
     font-size: 2rem;
+}
+.displayNone{
+    display:none;
+}
+.display{
+    display:block;
 }
 .hide{
     visibility:hidden;
